@@ -34,7 +34,12 @@ def middle(word):
 
 
 def is_palindrome(word):
-    """Returns whether a word is in fact, a palindrome."""
+    """Returns whether a word is in fact, a palindrome.
+    
+    word: string
+    
+    returns: boolean
+    """
     if len(word) <= 1:
         return True
     elif len(word) != 1 and first(word) != last(word):
