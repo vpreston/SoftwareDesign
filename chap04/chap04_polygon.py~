@@ -35,6 +35,6 @@ def arc(t, radius, angle):
 		lt(t, 1)
 
 bob.delay = 0.01
-square(bob, 50)
+polygon(bob, 50, 9)
 
 wait_for_user()

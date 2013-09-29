@@ -18,7 +18,7 @@ def draw_grid(row, column):
 	fincol = '|'
 	for i in range(row):
 		print segment1 * column + finstar
-		do_four(segment2 * column + fincol)
+		draw_four(segment2 * column + fincol)
 	print segment1 * column + finstar
 
-draw_grid(5,4)
+draw_grid(2,4)
