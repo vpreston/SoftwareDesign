@@ -24,3 +24,4 @@ def gcd(a, b):
     elif b==0:
         return a
 
+print gcd(8, 9)

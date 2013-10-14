@@ -1,0 +1,21 @@
+"""
+Victoria Preston
+October 13, 2013
+"""
+
+def nested_sum(lizt):
+    total = 0
+    for l in lizt:
+        for elements in l:
+            total += elements
+    return total
+
+def cumulative_sum(lizt):
+    res = []
+    total = 0
+    for element in lizt:
+        res.append(element)
+        total += element
+    return res
+
+print cumulative_sum([1, 2, 3])

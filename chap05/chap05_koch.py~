@@ -54,6 +54,6 @@ def snowflake(t,length):
 world = TurtleWorld()
 bob = Turtle()
 bob.delay = 0.01
-cesaro(bob, 1000)
+cesaro(bob, 100)
 
 wait_for_user()

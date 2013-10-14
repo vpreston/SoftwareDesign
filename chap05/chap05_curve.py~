@@ -9,7 +9,7 @@ from swampy.TurtleWorld import *
 from math import *
 
 def gosperA(t, length):
-	if length >=10:
+	if length >=20:
 		gosperA(t, length/2)
 		lt(t, 60)
 		gosperB(t, length/2)
@@ -27,7 +27,7 @@ def gosperA(t, length):
 		fd(t, length)
 
 def gosperB(t, length):
-	if length >=10:
+	if length >=20:
 		rt(t, 60)
 		gosperA(t, length/2)
 		lt(t, 60)
