@@ -18,4 +18,12 @@ def cumulative_sum(lizt):
         res.append(total)
     return res
 
+def remove_duplicates(l):
+    res = []
+    for i in range(len(l)):
+        if l[i] not in res:
+            res.append(l[i])
+    return res
+
 print cumulative_sum([1, 2, 3])
+print remove_duplicates([1, 2, 2, 3, 6, 7])

@@ -1,0 +1,49 @@
+"""
+Victoria Preston
+October 15, 2013
+"""
+
+from pronounce import read_dictionary
+
+def make_dictionary():
+    d = dict()
+    lizt = open('words.txt')
+    for line in lizt:
+        word = line.strip().lower()
+        d[word] = word
+    return d
+
+def words_compare(word):
+    """ creates a list of pertinant words from a given word
+    word - string
+    returns - list
+    """
+    t = []
+    full = word
+    first = word[1:]
+    second = word[0]+word[2:]
+    t = [full, first, second]
+    return t
+    
+def homophone(word, dictionary, pronounce):
+    """ evaluates whether a word satisfies the cartalk criteria
+    word - word to evaluate
+    dictionary - dictionary of all words
+    pronounce - the pronunciation dictionary
+    returns bool or list of words that match
+    """
+    t = words_compare(word)
+    if t[1] not in dictionary or t[2] not in dictionary:
+        return False
+    elif t[0] in pronounce and t[1] in pronounce and t[2] in pronounce:
+        if pronounce[t[0]]==pronounce[t[1]] == pronounce[t[2]]:
+            print t
+        else:
+            return False
+
+
+if __name__ == '__main__':
+    pronounce = read_dictionary()
+    dictionary = make_dictionary()
+    for words in dictionary:
+        homophone(words, dictionary, pronounce)
