@@ -1,0 +1,59 @@
+
+<!-- saved from url=(0111)http://network.realmedia.com/2/track_targeting/matcher/522540388@x87?pid=EP&XE&oas_ntClientCode=150359464297&XE -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><script type="text/javascript" src="122687389@x86"></script><script type="text/javascript">
+
+// One-way Cookie synching script
+// 24/7 Media Inc. -  Shane Skowron - 12 Dec 2012.
+	
+var queryString = 'pid=EP&XE&oas_ntClientCode=150359464297&XE';
+
+try {
+	// Break into params
+	var params = queryString.split("&");
+	
+	// Make sure we have enough params to parse
+	if (params.length >= 2) {
+		// Get vendor code
+		if (params[0].indexOf("pid") != -1) {
+			var vendorName = params[0].split("=")[1];
+		}
+		
+		// Get vendor cookie ID value
+		if (params[2].indexOf("oas_clientCode") != -1 || params[2].indexOf("oas_ntClientCode") != -1) {
+			var vendorCookie = params[2].split("=")[1];
+		}
+		
+		// Check for debug mode
+		if (queryString.indexOf("&debug") != -1) {
+			console.log ("Query String is: " + 'pid=EP&XE&oas_ntClientCode=150359464297&XE');
+			console.log ("Vendor Name is: " + vendorName);
+			console.log ("Vendor Cookie ID is: " + vendorCookie);
+		}
+		
+		// If params are valid, assemble them in Name-ID pairs
+		if (vendorName != null && vendorCookie != null) {
+		
+			var migParam = new Array(' ','','','','','');
+			var paramVal = vendorName + '-' + vendorCookie;		
+				
+			// TURN 
+			if (vendorName == "TN") {		migParam[1] = paramVal;		}	
+			// EXPONENTIAL
+			if (vendorName == "EP") {		migParam[2] = paramVal;		}	
+			// ACXIOM
+			if (vendorName == "AX") {		migParam[3] = paramVal;		}	
+			// JUMPTAP
+			if (vendorName == "JT") {		migParam[4] = paramVal;		}	
+			// Other, not used 
+			if (vendorName == "NA") {		migParam[5] = paramVal;		}	
+			
+			var rspPixel = new Image(1,1);
+			rspPixel.src = "http://t.mookie1.com/t/v1/event?migParam1=" + migParam[1] + "&migParam2=" + migParam[2] + "&migParam3=" + migParam[3] + "&migParam4=" + migParam[4] + "&migParam5=" + migParam[5] + "&migAction=cookie-sync-unilever2&migSource=mig&migClientId=4190";
+		}			
+}
+
+}  catch (e) { 
+	// console.log("Cookie Matching Script not formatted correctly.");  
+}
+
+</script></head><body><img style="display:none;" alt="" src="rsp"><img style="display:none;" alt="" src="cms"><img style="display:none;" alt="" src="rsp"><img style="display:none;" alt="" src="cms"></body></html>

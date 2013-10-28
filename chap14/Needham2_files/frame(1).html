@@ -1,0 +1,34 @@
+
+<!-- saved from url=(0254)http://a.tribalfusion.com/p.media/a4mQoupr3EYcMWXsr40cvvmT7R2bURTFfEVmYYPqbXQGMqSHZbr0tFsWAvu2GB20FFJT6yw4mFgPmbC4Wrs0tvZdnWZam5mB14GjbVcM9Ucb8RPMnTtFUUrnP5rTuWanrVTFaSTYZcSsJJRFipPHviWGbU2FyxoWqtYEmx3dMCSGjC4AYJmtanUdFfYbfkUcFXxBOVZaE/3413716/frame.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><script type="text/javascript">
+function pixelData(data){
+	if (typeof(data) != 'undefined')
+	{
+		var expoURL="http://a.tribalfusion.com/i.ad?size=0x0&site=lotame&adSpace=data&na_id=&na_mp=&c9_var="
+		var idList = "";
+		var audienceList = "";
+		var thirdPartyList = "";
+
+		for (i in data.Profile.Audiences.Audience)
+		{
+			if (i > 0) audienceList += ",";
+			audienceList += data.Profile.Audiences.Audience[i].id;
+		}
+
+		for (j in data.Profile.Audiences.ThirdPartyAudience)
+		{
+			if (j > 0) thirdPartyList += ",";
+			thirdPartyList += data.Profile.Audiences.ThirdPartyAudience[j].id;
+		}
+
+		idList = (audienceList != "" && thirdPartyList != "") ?  audienceList + "," + thirdPartyList : audienceList + thirdPartyList;
+
+		var img = new Image();
+		img.style.display = 'none';
+		img.src = expoURL + idList;
+	}
+}
+</script>
+
+
+<script type="text/javascript" src="callback=pixelData"></script></head><body marginwidth="0" marginheight="0"></body></html>
