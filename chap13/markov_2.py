@@ -19,7 +19,7 @@ def process_file(filename, numprefix,skip_header=True):
     fp = file(filename)
     skip_gutenberg_header(fp)
 
-    for line in fp:        
+    for line in fp:       
         process_line(line, numprefix)
     
     
@@ -39,22 +39,22 @@ def process_line(line, numprefix):
     hist: histogram (map from word to frequency)
     numprefix: int to define how many words in the prefix
     """
-    t = []
-    start = 0
-    end = numprefix
-    for word in line.rstrip().split():
-        t.append(word)
-    for word in t[start:end]:
-        pair = word,
-    if len(pair)<numprefix:
-        start += 1
-        end += 1
-        return
+    global pair
     
-    if pair in suffix:
-        suffix[pair].append(t[end:end+1])
-    else:
-        suffix[pair] = t[end:end+1]
+    for word in line.rstrip().split():
+    
+
+        if len(pair)<numprefix:
+            pair += (word,)
+            return
+        
+        if pair in suffix:
+            suffix[pair].append(word)
+        else:
+            suffix[pair] = [word]
+        
+        pair = pair[1:] + (word,)
+        
 
 def make_text(paragraph_size):
     """Chooses random couples to put a paragraph
